@@ -1,4 +1,7 @@
 GemPort::Application.routes.draw do
+  resources :referrals
+
+
   devise_for :users
 
   root :to => 'pages#home'
