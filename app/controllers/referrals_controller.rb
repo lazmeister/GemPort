@@ -1,4 +1,5 @@
 class ReferralsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /referrals
   # GET /referrals.json
   def index
@@ -24,7 +25,7 @@ class ReferralsController < ApplicationController
   # GET /referrals/new
   # GET /referrals/new.json
   def new
-    @referral = Referral.new
+    @referral = current_user.referrals.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +35,13 @@ class ReferralsController < ApplicationController
 
   # GET /referrals/1/edit
   def edit
-    @referral = Referral.find(params[:id])
+    @referral = current_user.referrals.find(params[:id])
   end
 
   # POST /referrals
   # POST /referrals.json
   def create
-    @referral = Referral.new(params[:referral])
+    @referral = current_user.referrals.new(params[:referral])
 
     respond_to do |format|
       if @referral.save
@@ -56,7 +57,7 @@ class ReferralsController < ApplicationController
   # PUT /referrals/1
   # PUT /referrals/1.json
   def update
-    @referral = Referral.find(params[:id])
+    @referral = current_user.referrals.find(params[:id])
 
     respond_to do |format|
       if @referral.update_attributes(params[:referral])
@@ -72,7 +73,7 @@ class ReferralsController < ApplicationController
   # DELETE /referrals/1
   # DELETE /referrals/1.json
   def destroy
-    @referral = Referral.find(params[:id])
+    @referral = current_user.referrals.find(params[:id])
     @referral.destroy
 
     respond_to do |format|

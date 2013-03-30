@@ -3,6 +3,8 @@
     <td><%= referral.description %></td>
 		<td></td>
     <td><%= link_to 'Show', referral, class: "btn" %></td>
+		<% if current_user == referral.user %>
     <td><%= link_to 'Edit', edit_referral_path(referral), class: "btn btn-success" %></td>
-    <td><%= link_to 'Destroy', referral, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning" %></td>
+    <td><%= link_to 'Destroy', referral, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+		<% end %>
   </tr>
