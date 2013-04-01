@@ -1,4 +1,10 @@
+<p class="lead">Welcome <%= "#{current_user.name}" %> to the Dock</p>
 <div class="center hero-unit">
-	<h2>The Dock</h2>
-	<p>Welcome <%= "#{current_user.name}" %> to the Dock, you will be able to find job postings below</p>
+	
+	<br />
+	<%= link_to 'Submit a Referral', new_referral_path, class: "btn btn-primary" %>
+	<br /><br />	
+	<div class="well">
+		<%= render @referrals %>
+	</div>
 </div>
