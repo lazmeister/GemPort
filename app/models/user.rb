@@ -16,7 +16,10 @@ class User < ActiveRecord::Base
     if user = User.where(:email => data.email).first
       user
     else # Create a user with a stub password. 
-      User.create!(:email => data.email, :password => Devise.friendly_token[0,20]) 
+      User.create!(:email => data.email,
+                    :name => data.name,
+                    :image => data.image,
+                    :password => Devise.friendly_token[0,20])
     end
   end
   
@@ -24,6 +27,8 @@ class User < ActiveRecord::Base
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"]
+        user.name = data["name"]
+        user.image = data["image"]
       end
     end
   end
