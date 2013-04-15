@@ -5,13 +5,17 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'omniauth-facebook'
+gem "paperclip", "~> 3.0"
+gem "haml"
 
 group :production do
   gem 'pg'
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3'    
+	gem 'haml-rails' 
+	gem 'html2haml'
 end
 
 # Gems used only for assets and not required

@@ -8,17 +8,39 @@ body{
     padding-top: 60px;
 }
 
-
-
 .navbar-inner{
     @include box-shadow(none !important);
     border: 0;
 }
 
 .footer{
-    margin-top: 50px;
-    color: $grayLight;
-    a{
-        color: $gray;
+   margin-top: 50px;
+   color: $grayLight;
+   a{
+       color: $gray;
+  
+ 
+
+
     }
+}
+.btn{
+	@include box-shadow(none !important);
+	border:none;              
+  border-radius:5px;        
+	}
+.dock {display:block;min-height:500px;}
+.referralList {    
+	-webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.11);
+	-moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.11);
+	box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.11);
+	-webkit-border-radius: 	5px;
+	-moz-border-radius: 		5px;
+	border-radius: 					5px;
+	margin:3px;
+	padding:3px 6px 3px 6px;
+	border:1px solid #CCC;
+	background:#FFF;
+	width:150px;
+	float:left;
 }

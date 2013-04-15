@@ -1,8 +1,9 @@
-<div class="well">
-  <h4><%= referral.description %></h4>
-	<%= link_to 'Show', referral, class: "btn" %></td>
+<div class="referralList pull-left">
 	<% if current_user == referral.user %>
-  <%= link_to 'Edit', edit_referral_path(referral), class: "btn btn-success" %>
-  <%= link_to 'Destroy', referral, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-		<% end %>
+  	<%= link_to 'Edit', edit_referral_path(referral), class: "btn btn-link" %>
+  	<%= link_to 'x', referral, method: :delete, data: { confirm: 'Are you sure?' }, class: "close" %>
+	  <h4><%= referral.description %></h4>
+	<% else %>
+	  <h4><%= referral.description %></h4>
+	<% end %>
 </div>
