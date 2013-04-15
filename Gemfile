@@ -4,7 +4,9 @@ gem 'rails', '3.2.11'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
+gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem "paperclip", "~> 3.0"
 gem "haml"
 
