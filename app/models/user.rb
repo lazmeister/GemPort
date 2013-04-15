@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :provider, :uid, :image
   validates_attachment :image, presence: true,
@@ -12,26 +12,24 @@ class User < ActiveRecord::Base
   has_attached_file :image, styles: { medium: "320x240>"}
   has_many :referrals
   
-  def self.find_for_facebook_oauth(omniauth)
-    if user = User.find_by_email(omniauth.info.email)
-      if omniauth.info.image.present?
-        user.update_attribute(:image, omniauth.info.image)
-      end
+  def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+    data = access_token.extra.raw_info
+    if user = User.where(:email => data.email).first
       user
     else # Create a user with a stub password. 
-      User.create!(:email => omniauth.info.email,
-                   :name => omniauth.info.name,
-                   :image => omniauth.info.image,
-                   :password => Devise.friendly_token[0,20])
+      User.create!(:email => data.email,
+                    :name => data.name,
+                    :image => data.image,
+                    :password => Devise.friendly_token[0,20])
     end
   end
   
   def self.new_with_session(params, session)
     super.tap do |user|
-      if omniauth = session["devise.facebook_data"]
-        user.email = omniauth.info.email
-        user.name = omniauth.info.name
-        user.image = omniauth.info.image
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"]
+        user.name = data["name"]
+        user.image = data["image"]
       end
     end
   end
