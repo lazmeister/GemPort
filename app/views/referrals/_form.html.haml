@@ -1,0 +1,22 @@
+= simple_form_for(@referral, html: { class: "form-horizontal"}) do |f|
+  = f.error_notification
+  = f.input :location, as: :text
+  = f.hint 'Please use the full city name'
+  = f.input :referraltype, collection: [ "Wedding", "Family", "Newborn", "Engagement", "Boudoir", "Maternity" ] , prompt: "Please Choose"
+  = f.input :description, as: :text,                                  |
+    placeholder: 'Add more info here',                                |
+    input_html: { rows: "3"}, prompt: "Enter any details if provided" |
+  -#
+  = f.input :eventdate, as: :date, |
+    start_year: Date.today.year,   |
+    end_year: Date.today.year + 3, |
+    order: [:day, :month, :year]   |
+  = f.input :coverage, collection: 1..15, required: false
+  = f.hint 'Enter coverage time or leave at 1'
+  = f.input :budget, as: :text, required: false, prompt: "Enter a budget or leave it blank"
+  = f.input :expiredays, collection: [ 30, 25, 20, 15, 10, 5, 1], :default => 30
+  = f.hint 'Choose when the referral will expire in days'
+  = f.input :expirereplies, collection: [ 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], :default => 25
+  = f.hint 'Choose a reply limit'
+  .form-actions
+    = f.button :submit, class: "btn btn-primary"

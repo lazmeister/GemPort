@@ -11,13 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408020945) do
+ActiveRecord::Schema.define(:version => 20130501193453) do
 
   create_table "referrals", :force => true do |t|
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "user_id"
+    t.string   "location"
+    t.string   "referraltype"
+    t.date     "eventdate"
+    t.string   "coverage"
+    t.integer  "budget"
+    t.integer  "expirereplies"
+    t.integer  "expiredays"
   end
 
   add_index "referrals", ["user_id"], :name => "index_referrals_on_user_id"

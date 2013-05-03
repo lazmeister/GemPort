@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :provider, :uid, :image
 
-  has_attached_file :image, styles: { medium: "320x240>"}
+  has_attached_file :image, styles: { medium: "320x320>", thumb: "50x50" }
   has_many :referrals
   
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)

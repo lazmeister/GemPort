@@ -1,16 +1,100 @@
+
+$linkColor: #4e526a;
+$navbarBackgroundHighlight: white;
+$navbarLinkColor: #f36044;
 @import 'bootstrap';
 @import 'bootstrap-responsive';
 
-$navbarBackgroundHighlight: white;
-$navbarBackground: white;
-
+/* Font */
+.icon:before {
+	font-family: 'Pictos Custom';
+	content: attr(data-icon);
+  -webkit-font-smoothing: antialiased;
+}
 body{
-    padding-top: 60px;
+    padding-top: 70px;
+}
+.img-circle {
+	border:3px solid #FFF;
+	-webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.4);
+	-moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.4);
+	box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.4);
 }
 
+/* navbar */
+
 .navbar-inner{
-    @include box-shadow(none !important);
-    border: 0;
+	background-image:none;
+	background:#f2efe1;
+	height: 60px;
+	}
+.navbar .nav > li > a { font-size:19px; line-height: 35px}
+.profileToggle {margin-top:3px}
+.profileToggle > a > i {margin-top:-3px}
+.profileToggle > a {
+	background:white;
+	-webkit-border-radius: 0px 35px 35px 0px;
+	border-radius: 0px 35px 35px 0px;
+	height: 20px;
+	margin-top:8px;
+}
+.profileToggle > a:hover .img-circle, .profileToggle.open > a .img-circle {
+	border:3px solid #4e526a;
+	-webkit-box-shadow: 0px 0px 2px rgba(50, 50, 50, 0.4);
+	-moz-box-shadow:    0px 0px 2px rgba(50, 50, 50, 0.4);
+	box-shadow:         0px 0px 2px rgba(50, 50, 50, 0.4);
+}
+.navbar .nav > li.profileToggle > a:hover, .navbar .nav > li.profileToggle.open > a {
+	background:#4e526a;
+	-webkit-box-shadow: 0px 0px 2px rgba(50, 50, 50, 0.4);
+	-moz-box-shadow:    0px 0px 2px rgba(50, 50, 50, 0.4);
+	box-shadow:         0px 0px 2px rgba(50, 50, 50, 0.4);
+}
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+	background:#4e526a;
+}
+.nav .dropdown-menu {
+	margin-top:10px;
+	-webkit-box-shadow: 1px 1px 1px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow:    1px 1px 1px rgba(50, 50, 50, 0.2);
+	box-shadow:         1px 1px 1px rgba(50, 50, 50, 0.2);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+.nav .dropdown-menu li {
+	margin: 5px 0 5px 0;
+}
+.navbar-inner{
+	border:none;
+	-webkit-box-shadow: 1px 1px 1px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow:    1px 1px 1px rgba(50, 50, 50, 0.2);
+	box-shadow:         1px 1px 1px rgba(50, 50, 50, 0.2);
+}
+.navbar .brand {
+	margin-top:3px;
+	padding:0;
+	width: 105px;
+	height: 55px;
+	background-image:url('logo.svg');
+}
+
+.profileHeader {
+	width:50px;
+	height:50px;
+	margin-top:-19px;
+	margin-left:-25px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow:    none;
+	box-shadow:         none;
+}
+
+li a:hover i {
+  background-image: url("glyphicons-halflings-white.png");
+}
+li.open a:hover i {
+	background-image: url("glyphicons-halflings.png");
 }
 
 .footer{
@@ -18,10 +102,6 @@ body{
    color: $grayLight;
    a{
        color: $gray;
-  
- 
-
-
     }
 }
 .btn{
@@ -29,6 +109,7 @@ body{
 	border:none;              
   border-radius:5px;        
 	}
+select {width:auto;min-width: 20px;}
 .dock {display:block;min-height:500px;}
 .referralList {    
 	-webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.11);

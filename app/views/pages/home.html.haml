@@ -1,0 +1,10 @@
+- if user_signed_in?
+  = render 'layouts/dock'
+- else
+  .center.hero-unit
+    %h1 Welcome to GemPort!
+    %p
+      Where Photographers can connect!
+    = link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large"
+    %p
+      = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)

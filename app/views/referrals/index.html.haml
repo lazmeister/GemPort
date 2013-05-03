@@ -1,0 +1,13 @@
+%h2 Listing referrals
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+      %th
+      %th
+      %th
+      %th
+  %tbody
+    = render @referrals
+%br/
+= link_to 'Submit a Referral', new_referral_path, class: "btn btn-primary"
