@@ -1,7 +1,9 @@
 %br
 %p.lead
-  Welcome #{current_user.name} to the Dock
-.center.hero-unit
-  = link_to 'Submit a Referral', new_referral_path, class: "btn btn-primary"
-  .dock
-    = render @referrals
+  #{current_user.name}, Welcome to the Dock
+.row
+  .center
+    .span3
+      = link_to '<i class="icon-edit icon-white"></i> Submit a Referral'.html_safe, new_referral_path, class: "btn btn-large btn-primary btn-block"
+    .dock.span12
+      = render @referrals

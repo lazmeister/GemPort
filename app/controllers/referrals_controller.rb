@@ -3,7 +3,8 @@ class ReferralsController < ApplicationController
   # GET /referrals
   # GET /referrals.json
   def index
-    @referrals = Referral.all
+    @referrals = Referral.order("created_at desc")
+    @referrals
 
     respond_to do |format|
       format.html # index.html.erb

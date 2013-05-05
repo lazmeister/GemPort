@@ -1,5 +1,5 @@
 
-$linkColor: #4e526a;
+$linkColor: #f36044;
 $navbarBackgroundHighlight: white;
 $navbarLinkColor: #f36044;
 @import 'bootstrap';
@@ -11,9 +11,7 @@ $navbarLinkColor: #f36044;
 	content: attr(data-icon);
   -webkit-font-smoothing: antialiased;
 }
-body{
-    padding-top: 70px;
-}
+
 .img-circle {
 	border:3px solid #FFF;
 	-webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.4);
@@ -22,21 +20,23 @@ body{
 }
 
 /* navbar */
-
 .navbar-inner{
 	background-image:none;
-	background:#f2efe1;
 	height: 60px;
-	}
+	border-bottom:1px solid #e5e1d3;
+}
 .navbar .nav > li > a { font-size:19px; line-height: 35px}
-.profileToggle {margin-top:3px}
+.profileToggle {margin:2px 15px 0}
 .profileToggle > a > i {margin-top:-3px}
 .profileToggle > a {
-	background:white;
+	background:#f36044;
 	-webkit-border-radius: 0px 35px 35px 0px;
 	border-radius: 0px 35px 35px 0px;
 	height: 20px;
 	margin-top:8px;
+}
+.profileToggle > a .img-circle {
+	border:3px solid #f36044;
 }
 .profileToggle > a:hover .img-circle, .profileToggle.open > a .img-circle {
 	border:3px solid #4e526a;
@@ -67,7 +67,6 @@ body{
 	margin: 5px 0 5px 0;
 }
 .navbar-inner{
-	border:none;
 	-webkit-box-shadow: 1px 1px 1px rgba(50, 50, 50, 0.2);
 	-moz-box-shadow:    1px 1px 1px rgba(50, 50, 50, 0.2);
 	box-shadow:         1px 1px 1px rgba(50, 50, 50, 0.2);
@@ -79,7 +78,6 @@ body{
 	height: 55px;
 	background-image:url('logo.svg');
 }
-
 .profileHeader {
 	width:50px;
 	height:50px;
@@ -90,6 +88,8 @@ body{
 	box-shadow:         none;
 }
 
+
+/* icons go white on hover */
 li a:hover i {
   background-image: url("glyphicons-halflings-white.png");
 }
@@ -97,6 +97,7 @@ li.open a:hover i {
 	background-image: url("glyphicons-halflings.png");
 }
 
+/* footer */
 .footer{
    margin-top: 50px;
    color: $grayLight;
@@ -105,23 +106,114 @@ li.open a:hover i {
     }
 }
 .btn{
-	@include box-shadow(none !important);
+	/*@include box-shadow(none !important);*/
 	border:none;              
-  border-radius:5px;        
-	}
+  border-radius:5px;     
+  background: #f36044;
+	border-bottom: 2px solid #f36044/2;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+.btn:hover, .btn:focus {
+	background: #bfc0bd;
+}
 select {width:auto;min-width: 20px;}
-.dock {display:block;min-height:500px;}
-.referralList {    
-	-webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.11);
-	-moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.11);
-	box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.11);
-	-webkit-border-radius: 	5px;
-	-moz-border-radius: 		5px;
-	border-radius: 					5px;
-	margin:3px;
+
+/* Dock and referrals */
+.dock {
+	margin-top:30px;
+}
+.referralBox {
+	border:1px solid #EDEDED;
+	position:relative;
+	-webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.2);
+	box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.2);
 	padding:3px 6px 3px 6px;
-	border:1px solid #CCC;
 	background:#FFF;
-	width:150px;
 	float:left;
+	width: 260px;
+	background: #efefef;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZWZlZmVmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U1ZTVlNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(-45deg,  #efefef 0%, #e5e5e5 100%);
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#efefef), color-stop(100%,#e5e5e5));
+	background: -webkit-linear-gradient(-45deg,  #efefef 0%,#e5e5e5 100%);
+	background: -o-linear-gradient(-45deg,  #efefef 0%,#e5e5e5 100%);
+	background: -ms-linear-gradient(-45deg,  #efefef 0%,#e5e5e5 100%);
+	background: linear-gradient(135deg,  #efefef 0%,#e5e5e5 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#e5e5e5',GradientType=1 );
+}
+
+.referralBox:hover, .referralBox:focus {
+	border:1px solid #DEDEDE;
+}
+.referralEdit {
+	opacity:0;
+	visibility:hidden;
+	transition:opacity .5s linear;
+	right:29px;
+	position:absolute;
+}
+.referralClose {
+	opacity:0.1;
+	visibility:visible;
+	transition:opacity .5s linear;
+	right:6px;
+	position:absolute;
+}
+.referralBox:hover .referralEdit, .referralBox:hover .referralClose {
+	visibility:visible;
+	opacity:1;
+  transition-delay:0s;
+}
+.referralProfile {
+	position:absolute;
+	top:-10px;
+	left:-40px;
+	width:50px
+}
+.referralBox h5 {margin:5px 50px 5px 40px;}
+/* Masonry */
+
+
+
+@media (max-width: 480px) {
+	
+}
+@media (max-width: 767px) {
+	.referralBox {margin:8px 5px 8px 5px;width:98%}
+	.referralBox h5 {margin-left:40px;}
+	.referralBox .eventDate {margin-left:40px}
+	.referralProfile {left:-15px;}
+}
+@media (min-width: 768px) {
+	.referralBox h5 {margin-left:40px;}
+	.referralBox .eventDate {margin-left:40px}
+}
+@media (min-width: 768px) and (max-width: 979px) {
+	.referralBox {margin:8px 15px 8px 15px;}
+	.referralBox h5 {margin-left:40px;}
+	.referralBox .eventDate {margin-left:40px}
+	.referralProfile {left:-35px;}
+	.btn {padding-left:4px;padding-right:4px}
+	.span3 .btn.btn-block {width: 186px;}
+}
+@media (min-width: 980px) {
+	body {padding-top: 70px;}
+	.referralBox {margin:8px 15px 8px 15px}
+	.referralBox h5 {margin-left:45px;}
+	.referralBox .eventDate {margin-left:45px}
+	.referralProfile {left:-40px;}
+}
+@media (max-width: 979px) {
+	.navbar .brand {
+		margin-left:5px;
+	}
+}
+@media (min-width: 1200px) {
+	.referralBox {margin:8px}
+	.referralBox h5 {margin-left:50px;}
+	.referralBox .eventDate {margin-left:50px}
 }

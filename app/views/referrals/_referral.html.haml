@@ -1,13 +1,26 @@
-.referralList.pull-left
+.referralBox.pull-left
   - if current_user == referral.user
-    = link_to 'Edit', edit_referral_path(referral), class: "btn btn-link"
-    = link_to 'x', referral, method: :delete, data: { confirm: 'Are you sure?' }, class: "close"
-    %h4= referral.location
-    %p.lead= referral.eventdate
-    %ul
-      %li= referral.description
-      %li= referral.referraltype
-      %li= referral.coverage
-      %li= referral.budget
-    %small
-      = referral.user.name
+    = link_to '<i class="icon-pencil" rel="tooltip" title="Edit"></i>'.html_safe, edit_referral_path(referral), class: "referralEdit"
+    = link_to '<i class="icon-remove" rel="tooltip" title="Delete"></i>'.html_safe, referral, method: :delete, data: { confirm: 'Are you sure?' }, class: "referralClose"
+  .referralProfile
+    = image_tag(referral.user.image.url, :class => "img-circle span1", :style => "thumb")
+  %h5
+    %i.icon-map-marker
+    = referral.location
+  %p.eventDate
+    %i.icon-calendar
+    = referral.eventdate
+  %ul.unstyled.inline
+    %li
+      %h4
+        = referral.referraltype
+    %li
+      %i.icon-time 
+      = referral.coverage
+      %small hrs
+    %li
+      $
+      = referral.budget
+  %ul.unstyled.inline
+    %li
+      = referral.description
