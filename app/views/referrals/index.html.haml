@@ -1,4 +1,7 @@
-%h2 Listing referrals
-= render @referrals
-%br/
-= link_to 'Submit a Referral', new_referral_path, class: "btn btn-primary"
+%br
+.row
+  .center
+    .span3
+      = link_to '<i class="icon-edit icon-white icon-large"></i> Submit a Referral'.html_safe, new_referral_path, class: "btn btn-large btn-primary btn-block"
+    .dock.span12
+      = render @referrals

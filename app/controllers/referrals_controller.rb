@@ -1,10 +1,10 @@
 class ReferralsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /referrals
   # GET /referrals.json
   def index
-    @referrals = Referral.order("created_at desc")
-    @referrals
+    @referrals = Referral.order("created_at asc")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,7 +30,7 @@ class ReferralsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @referral }
+      format.json { render json: @referrals }
     end
   end
 

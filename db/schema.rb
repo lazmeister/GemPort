@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501193453) do
+ActiveRecord::Schema.define(:version => 20130509142831) do
 
   create_table "referrals", :force => true do |t|
     t.string   "description"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(:version => 20130501193453) do
   end
 
   add_index "referrals", ["user_id"], :name => "index_referrals_on_user_id"
+
+  create_table "replies", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "referral_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "replies", ["referral_id"], :name => "index_replies_on_referral_id"
+  add_index "replies", ["user_id"], :name => "index_replies_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                     :default => "", :null => false
@@ -50,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130501193453) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "website"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

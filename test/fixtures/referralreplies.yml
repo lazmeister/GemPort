@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  replier: MyString
+  referral: 
+
+two:
+  replier: MyString
+  referral: 

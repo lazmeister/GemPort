@@ -12,9 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.masonry.min.js
 //= require bootstrap
 //= require_tree .
 $(function () {
     $("[rel='tooltip']").tooltip();
+		$(".alert").fadeOut(3000 );
+});
+Ajax.Responders.register({
+onComplete: function(event, request) {
+   var msg = request.getResponseHeader('X-Message');
+   var type = request.getResponseHeader('X-Message-Type');
+   showAjaxMessage(msg, type); //use whatever popup, notification or whatever plugin you want
+   }
 });

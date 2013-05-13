@@ -1,19 +1,41 @@
+@import url(http://fonts.googleapis.com/css?family=Bentham|Droid+Sans:400,700);
 
+$sansFontFamily: 'Droid Sans', sans-serif;
+$headingsFontFamily: 'Bentham', serif;
 $linkColor: #f36044;
 $navbarBackgroundHighlight: white;
 $navbarLinkColor: #f36044;
+$iconSpritePath: '';
+$iconWhiteSpritePath: '';
+$heroUnitBackground: transparent;
+$headingsColor: #4e526a;
 @import 'bootstrap';
 @import 'bootstrap-responsive';
+@import 'font-awesome';
+
+body {
+	background:#f2efe1;
+	-webkit-font-smoothing: antialiased;
+}
+.hero-unit h1 {color:#4e526a;}
+h1,h2,h3,h4,h5,h6 {font-weight:normal};
+a:hover i {text-decoration:none;}
 
 /* Font */
-.icon:before {
-	font-family: 'Pictos Custom';
-	content: attr(data-icon);
-  -webkit-font-smoothing: antialiased;
-}
 
 .img-circle {
-	border:3px solid #FFF;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+.img-border {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border:2px solid white;
 	-webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.4);
 	-moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.4);
 	box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.4);
@@ -22,46 +44,74 @@ $navbarLinkColor: #f36044;
 /* navbar */
 .navbar-inner{
 	background-image:none;
-	height: 60px;
+	background:#4e526a;
 	border-bottom:1px solid #e5e1d3;
+	height: 64px;
 }
-.navbar .nav > li > a { font-size:19px; line-height: 35px}
-.profileToggle {margin:2px 15px 0}
-.profileToggle > a > i {margin-top:-3px}
+.navbar .nav > li > a {
+	text-shadow: none;
+	font-size:20px;
+	line-height: 35px;
+	color: #dbd8ce;
+}
+.profileToggle {margin:4px 15px 0}
 .profileToggle > a {
 	background:#f36044;
 	-webkit-border-radius: 0px 35px 35px 0px;
 	border-radius: 0px 35px 35px 0px;
 	height: 20px;
+	width:60px;
 	margin-top:8px;
 }
-.profileToggle > a .img-circle {
+.img-border {
 	border:3px solid #f36044;
 }
-.profileToggle > a:hover .img-circle, .profileToggle.open > a .img-circle {
-	border:3px solid #4e526a;
+.profileToggle > a .img-border {
+margin-top:-39px;
+}
+.profileToggle > a i {margin:0px}
+.profileToggle > a:hover .img-border, .profileToggle.open > a .img-border {
+	border:3px solid #dbd8ce;
 	-webkit-box-shadow: 0px 0px 2px rgba(50, 50, 50, 0.4);
 	-moz-box-shadow:    0px 0px 2px rgba(50, 50, 50, 0.4);
 	box-shadow:         0px 0px 2px rgba(50, 50, 50, 0.4);
 }
 .navbar .nav > li.profileToggle > a:hover, .navbar .nav > li.profileToggle.open > a {
-	background:#4e526a;
+	background:#dbd8ce;
 	-webkit-box-shadow: 0px 0px 2px rgba(50, 50, 50, 0.4);
 	-moz-box-shadow:    0px 0px 2px rgba(50, 50, 50, 0.4);
 	box-shadow:         0px 0px 2px rgba(50, 50, 50, 0.4);
 }
-.navbar .nav > .active > a,
-.navbar .nav > .active > a:hover,
-.navbar .nav > .active > a:focus {
-	background:#4e526a;
+.navbar .nav > li.active > a{
+	color: #f36044;
+	background: inherit;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:focus,
+.navbar .nav > li.active > a:hover,
+.navbar .nav > li.active > a:focus {
+	color:#f36044;
+	background: inherit;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.navbar .nav > li.active > i {
+	margin-top: 0px;
+	margin-right: 45px;
+	margin-bottom: -4px;
+	color:#dbd8ce;
 }
 .nav .dropdown-menu {
-	margin-top:10px;
-	-webkit-box-shadow: 1px 1px 1px rgba(50, 50, 50, 0.2);
-	-moz-box-shadow:    1px 1px 1px rgba(50, 50, 50, 0.2);
-	box-shadow:         1px 1px 1px rgba(50, 50, 50, 0.2);
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
+	margin: 13px 7px 0 0;
+	-webkit-box-shadow: 0px 2px 3px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow:    0px 2px 3px rgba(50, 50, 50, 0.2);
+	box-shadow:         0px 2px 3px rgba(50, 50, 50, 0.2);
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
 }
 .nav .dropdown-menu li {
 	margin: 5px 0 5px 0;
@@ -71,12 +121,13 @@ $navbarLinkColor: #f36044;
 	-moz-box-shadow:    1px 1px 1px rgba(50, 50, 50, 0.2);
 	box-shadow:         1px 1px 1px rgba(50, 50, 50, 0.2);
 }
-.navbar .brand {
+.navbar .logo {
 	margin-top:3px;
 	padding:0;
-	width: 105px;
-	height: 55px;
-	background-image:url('logo.svg');
+	float:left;
+	width: 150px;
+	height: 50px;
+	display:block;
 }
 .profileHeader {
 	width:50px;
@@ -88,15 +139,6 @@ $navbarLinkColor: #f36044;
 	box-shadow:         none;
 }
 
-
-/* icons go white on hover */
-li a:hover i {
-  background-image: url("glyphicons-halflings-white.png");
-}
-li.open a:hover i {
-	background-image: url("glyphicons-halflings.png");
-}
-
 /* footer */
 .footer{
    margin-top: 50px;
@@ -105,49 +147,94 @@ li.open a:hover i {
        color: $gray;
     }
 }
+
+
+
 .btn{
 	/*@include box-shadow(none !important);*/
 	border:none;              
   border-radius:5px;     
   background: #f36044;
-	border-bottom: 2px solid #f36044/2;
+	border-bottom: 2px solid #c94d3d;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	-webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 }
 .btn:hover, .btn:focus {
-	background: #bfc0bd;
+	background: #4e526a;
+	border-bottom: 2px solid #3d4151;
+}
+.btn-facebook {
+	color:white;
+	background:#3b5998;
+	border-bottom-color:#304977;
+	text-shadow:none
+}
+.btn-twitter {
 }
 select {width:auto;min-width: 20px;}
+.orange {color:#f36044;}
+.icon-white {background:none;color:white}
+.icon-grey {color:#AAA}
+.icon-grey:hover {color:#f36044;}
+.cornerShadow:after {     
+  content: "";
+  position:absolute;
+  z-index:-1;
+  right:-0px; bottom:20px;
+  width:200px;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.2);
+  -moz-box-shadow:		5px 19px 5px rgba(0, 0, 0, 0.20);
+  -webkit-box-shadow:	5px 19px 5px rgba(0, 0, 0, 0.20);
+  box-shadow:					5px 19px 5px rgba(0, 0, 0, 0.20);
+	-moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+	 -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+	      -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+	     -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+	         transform: matrix(-1, -0.1, 0, 1, 0, 0);
+}
 
 /* Dock and referrals */
 .dock {
+	background: #dbd8ce;
+	display: block;
+	height:100%;
+	padding:10px;
 	margin-top:30px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 .referralBox {
-	border:1px solid #EDEDED;
+	border:1px solid #cccccc;
+	border-right:1px solid #bababa;
+	border-bottom:1px solid #bababa;
 	position:relative;
-	-webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.2);
-	-moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.2);
-	box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.2);
+	font-size: 13px;
 	padding:3px 6px 3px 6px;
 	background:#FFF;
 	float:left;
 	width: 260px;
-	background: #efefef;
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZWZlZmVmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U1ZTVlNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-	background: -moz-linear-gradient(-45deg,  #efefef 0%, #e5e5e5 100%);
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#efefef), color-stop(100%,#e5e5e5));
-	background: -webkit-linear-gradient(-45deg,  #efefef 0%,#e5e5e5 100%);
-	background: -o-linear-gradient(-45deg,  #efefef 0%,#e5e5e5 100%);
-	background: -ms-linear-gradient(-45deg,  #efefef 0%,#e5e5e5 100%);
-	background: linear-gradient(135deg,  #efefef 0%,#e5e5e5 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#e5e5e5',GradientType=1 );
+  -moz-box-shadow:		0px 0px 4px rgba(0, 0, 0, 0.14);
+  -webkit-box-shadow:	0px 0px 4px rgba(0, 0, 0, 0.14);
+  box-shadow:					0px 0px 4px rgba(0, 0, 0, 0.14);
+  -webkit-transition : all 0.6s ease-out-in;
+     -moz-transition : all 0.6s ease-out-in;
+      -ms-transition : all 0.6s ease-out-in;
+       -o-transition : all 0.6s ease-out-in;
+          transition : all 0.6s ease-out-in;
+	-moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
 }
-
 .referralBox:hover, .referralBox:focus {
-	border:1px solid #DEDEDE;
+  -webkit-transition : all 0.2s ease-in-out;
+     -moz-transition : all 0.2s ease-in-out;
+      -ms-transition : all 0.2s ease-in-out;
+       -o-transition : all 0.2s ease-in-out;
+          transition : all 0.2s ease-in-out;
+  -moz-box-shadow:		0px 0px 8px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow:	0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow:					0px 0px 8px rgba(0, 0, 0, 0.3);
 }
 .referralEdit {
 	opacity:0;
@@ -171,10 +258,12 @@ select {width:auto;min-width: 20px;}
 .referralProfile {
 	position:absolute;
 	top:-10px;
-	left:-40px;
-	width:50px
+	left:0px;
+	width:60px
 }
-.referralBox h5 {margin:5px 50px 5px 40px;}
+.img-border.border-white {border-color:white}
+.referralProfile a:hover .img-border {border-color:#f36044}
+.referralBox .location {margin:5px 50px 5px 40px;}
 /* Masonry */
 
 
@@ -184,36 +273,36 @@ select {width:auto;min-width: 20px;}
 }
 @media (max-width: 767px) {
 	.referralBox {margin:8px 5px 8px 5px;width:98%}
-	.referralBox h5 {margin-left:40px;}
-	.referralBox .eventDate {margin-left:40px}
+	.referralBox .location {margin-left:52px;}
+	.referralBox .eventDate {margin-left:52px}
 	.referralProfile {left:-15px;}
 }
 @media (min-width: 768px) {
-	.referralBox h5 {margin-left:40px;}
+	.referralBox .location {margin-left:40px;}
 	.referralBox .eventDate {margin-left:40px}
 }
 @media (min-width: 768px) and (max-width: 979px) {
 	.referralBox {margin:8px 15px 8px 15px;}
-	.referralBox h5 {margin-left:40px;}
-	.referralBox .eventDate {margin-left:40px}
-	.referralProfile {left:-35px;}
+	.referralBox .location {margin-left:52px;}
+	.referralBox .eventDate {margin-left:52px}
+	.referralProfile {left:-15px;}
 	.btn {padding-left:4px;padding-right:4px}
 	.span3 .btn.btn-block {width: 186px;}
 }
 @media (min-width: 980px) {
 	body {padding-top: 70px;}
 	.referralBox {margin:8px 15px 8px 15px}
-	.referralBox h5 {margin-left:45px;}
-	.referralBox .eventDate {margin-left:45px}
-	.referralProfile {left:-40px;}
+	.referralBox .location {margin-left:55px;}
+	.referralBox .eventDate {margin-left:55px}
+	.referralProfile {left:-10px;}
 }
 @media (max-width: 979px) {
-	.navbar .brand {
+	.navbar .logo {
 		margin-left:5px;
 	}
 }
 @media (min-width: 1200px) {
 	.referralBox {margin:8px}
-	.referralBox h5 {margin-left:50px;}
-	.referralBox .eventDate {margin-left:50px}
+	.referralBox .location {margin-left:55px;}
+	.referralBox .eventDate {margin-left:55px}
 }

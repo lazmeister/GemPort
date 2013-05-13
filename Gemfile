@@ -9,6 +9,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem "paperclip", "~> 3.0"
 gem "haml"
+gem 'font-awesome-sass-rails'
+gem "rails-alertify"
 
 group :production do
   gem 'pg'

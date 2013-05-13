@@ -5,6 +5,7 @@ class Referral < ActiveRecord::Base
   validates :location, presence: true
   validates :referraltype, presence: true
   validates :eventdate, presence: true
+  has_many :replies
   
   def nil_zero?
     self.nil? || self == 0

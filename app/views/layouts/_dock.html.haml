@@ -1,9 +1,21 @@
 %br
 %p.lead
   #{current_user.name}, Welcome to the Dock
-.row
-  .center
-    .span3
-      = link_to '<i class="icon-edit icon-white"></i> Submit a Referral'.html_safe, new_referral_path, class: "btn btn-large btn-primary btn-block"
-    .dock.span12
+.row.center
+  .span7
+    .row
+      .span3
+        %h2 Referrals
+        = link_to '<i class="icon-edit icon-white icon-large"></i> Submit a Referral'.html_safe, new_referral_path, class: "btn btn-large btn-primary btn-block"
+      .span4
+    .dock
       = render @referrals
+  .span4
+    .row
+      .span3
+        %h2 Gear
+        %a.btn.btn-large.btn-primary.btn-block
+          %i.icon-camera.icon-large
+          &nbsp; Post Gear
+    .dock
+      
