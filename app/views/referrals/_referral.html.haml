@@ -25,12 +25,11 @@
     %li
       = referral.description  
   -unless referral.replies.count == 0
-    .orange
-      %i.icon-comments.icon-large{"rel" => "tooltip", "title" => "Replies"}
-        = referral.replies.count
+    %i.icon-comments.icon-large.orange{"rel" => "tooltip", "title" => "Replies"}
+      = referral.replies.count
   - unless current_user == referral.user
     - if referral.replies.any?
-      %i.icon-ok.icon-large.pull-right{"rel" => "tooltip", "title" => "Replied"}
+      %i.icon-ok.icon-large.pull-right.orange{"rel" => "tooltip", "title" => "Replied"}
     - else
       = link_to '<i class="icon-ok icon-large pull-right icon-grey" rel="tooltip" title="Reply"> Reply</i>'.html_safe, new_referral_reply_path(:referral_id => referral.id, :user_id => current_user.id)
   .cornershadow

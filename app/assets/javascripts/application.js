@@ -16,7 +16,7 @@
 //= require_tree .
 $(function () {
     $("[rel='tooltip']").tooltip();
-		$(".alert").fadeOut(3000 );
+		$(".alert").fadeOut(6000);
 });
 Ajax.Responders.register({
 onComplete: function(event, request) {

@@ -5,3 +5,4 @@
       = link_to '<i class="icon-edit icon-white icon-large"></i> Submit a Referral'.html_safe, new_referral_path, class: "btn btn-large btn-primary btn-block"
     .dock.span12
       = render @referrals
+= will_paginate @referrals

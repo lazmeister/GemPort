@@ -4,7 +4,7 @@ class ReferralsController < ApplicationController
   # GET /referrals
   # GET /referrals.json
   def index
-    @referrals = Referral.order("created_at asc")
+    @referrals = Referral.order("created_at asc").page(params[:page]).per_page(5)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,8 +46,8 @@ class ReferralsController < ApplicationController
 
     respond_to do |format|
       if @referral.save
-        format.html { redirect_to @referral, notice: 'Referral was successfully created.' }
-        format.json { render json: @referral, status: :created, location: @referral }
+        format.html { redirect_to referrals_path, notice: 'Referral was successfully created.' }
+        format.json { render json: @referrals, status: :created, location: @referral }
       else
         format.html { render action: "new" }
         format.json { render json: @referral.errors, status: :unprocessable_entity }
@@ -62,7 +62,7 @@ class ReferralsController < ApplicationController
 
     respond_to do |format|
       if @referral.update_attributes(params[:referral])
-        format.html { redirect_to @referral, notice: 'Referral was successfully updated.' }
+        format.html { redirect_to referrals_path, notice: 'Referral was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

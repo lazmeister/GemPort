@@ -11,6 +11,8 @@ gem "paperclip", "~> 3.0"
 gem "haml"
 gem 'font-awesome-sass-rails'
 gem "rails-alertify"
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 
 group :production do
   gem 'pg'

@@ -20,6 +20,8 @@ body {
 .hero-unit h1 {color:#4e526a;}
 h1,h2,h3,h4,h5,h6 {font-weight:normal};
 a:hover i {text-decoration:none;}
+i:hover {cursor:pointer;}
+.textshadow {text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);}
 
 /* Font */
 
@@ -40,6 +42,9 @@ a:hover i {text-decoration:none;}
 	-moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.4);
 	box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.4);
 }
+
+/* Alerts */
+.alert {position:absolute;margin-left:400px}
 
 /* navbar */
 .navbar-inner{
