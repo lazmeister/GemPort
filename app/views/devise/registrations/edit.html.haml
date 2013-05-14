@@ -7,7 +7,7 @@
       = image_tag(current_user.image.url, :class => "img-circle img-border border-white")
       .span3
         = f.file_field :image
-    .span8.well
+    .span8.dock
       = f.input :name, :autofocus => true
       = f.input :email
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
@@ -15,6 +15,7 @@
           Currently waiting confirmation for: #{resource.unconfirmed_email}
       
       = f.input :website
+      = f.input :location
       = f.input :password, label: "New Password", autocomplete: "off"
       = f.input :password_confirmation, label: "New Password Confirmation", :autocomplete => "off"
       = f.input :current_password

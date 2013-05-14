@@ -1,10 +1,20 @@
-.row.center
-  .span4
-    = image_tag(@user.image.url, :class => "img-circle img-border border-white")
-    %h1
-      = @user.name
-    website:
-    = @user.website
-  .span8
-    .span8.dock
-      = render @referrals
+.profilePage
+  .row.center
+    .span4
+      = image_tag(@user.image.url, :class => "img-circle img-border border-white")
+      %h2
+        = @user.name
+      %i.icon-globe.icon-large
+      &nbsp;
+      = @user.website
+      %br
+      %br
+      %i.icon-map-marker.icon-large
+      &nbsp;
+      = @user.location
+    .span8
+      .span7
+        %h3
+          Posted Referrals
+      .span7.dock#referrals
+        = render @referrals

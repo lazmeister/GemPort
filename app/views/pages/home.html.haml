@@ -1,11 +1,58 @@
 - if user_signed_in?
   = render 'layouts/dock'
 - else
-  .hero-unit.center
-    %h1 Welcome to GemPort!
-    %p
-      Where Photographers can connect!
-    = link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large"
-    %p
-    %p
-      = link_to '<i class="icon-facebook icon-white"></i> &nbsp;Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-facebook"
+  .hero-unit.row.center
+    .span12.login
+      .span7.offset2
+        %h1
+          Welcome to
+          = image_tag("logo.svg", :format => "svg", :size => "150x50", :alt => "GemPort", :class => "logo front")
+        .lead.span6.orange
+          A Community of photographers, where you can connect with others, find assistants, referrals, and post gear for sale.
+      .row
+        .span4
+          %h2
+            Register now!
+          = link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large"
+        .span4.offset1
+          %ul.unstyled.socialButtons
+            %li
+              .muted
+                %br
+                Login with social:
+            %li
+              = link_to '<i class="icon-google-plus icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Google'.html_safe, new_user_registration_path, class: "btn btn-google btn-large btn-block"
+            %li  
+              = link_to '<i class="icon-facebook icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-large btn-block"
+            %li  
+              = link_to '<i class="icon-twitter icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Twitter'.html_safe, new_user_registration_path, class: "btn btn-twitter btn-large btn-block"
+  .row
+    .span12.section1
+      %ul.unstyled.inline
+        %li.span5
+          %h3.orange
+            %i.icon-group.icon-large
+            &nbsp; Referrals
+          %p
+            %strong Post/Apply Referrals for all sorts of gigs. If you have an inquiry and you are booked for that day, come and post your referral! If you are looking for extra work, you can easily apply to local referrals
+        %li.span5
+          %h3.orange
+            %i.icon-heart.icon-large
+            &nbsp; Make Friends
+          %p
+            %strong Connect and make friends with local photographers!
+      .span12
+        %br
+      %ul.unstyled.inline
+        %li.span5
+          %h3.orange
+            %i.icon-camera.icon-large
+            &nbsp; Gear for Sale
+          %p
+            %strong Sell/Buy gear from local photographers within your region. No more spam, no more outrageous posting fees!
+        %li.span5
+          %h3.orange
+            %i.icon-star.icon-large
+            &nbsp; Find an Assistant
+          %p
+            %strong Find/Apply for assistant jobs. You will have the comfort of knowing you are in a community of photographers

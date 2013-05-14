@@ -1,14 +1,16 @@
-.referralBox.pull-left.cornerShadow
+.referralBox.cornerShadow
   - if current_user == referral.user
     = link_to '<i class="icon-pencil icon-large icon-grey" rel="tooltip" title="Edit"></i>'.html_safe, edit_referral_path(referral), class: "referralEdit"
     = link_to '<i class="icon-remove icon-large icon-grey" rel="tooltip" title="Delete"></i>'.html_safe, referral, method: :delete, data: { confirm: 'Are you sure?' }, class: "referralClose"
   .referralProfile
-    = link_to "#{image_tag(referral.user.image.url, :class => "img-circle img-border border-white", :style => "thumb")}".html_safe, referral.user
+    = link_to "#{image_tag(referral.user.image.url, :class => "img-circle img-border border-white", :style => "thumb")}".html_safe, referral.user, { "rel" => "tooltip", "title" => "Profile"}
   .location
     %i.icon-map-marker
+    &nbsp;&nbsp;
     = referral.location
   %p.eventDate
     %i.icon-calendar
+    &nbsp;
     = referral.eventdate.to_formatted_s(:long)
   %ul.unstyled.inline
     %li
@@ -32,4 +34,4 @@
       %i.icon-ok.icon-large.pull-right.orange{"rel" => "tooltip", "title" => "Replied"}
     - else
       = link_to '<i class="icon-ok icon-large pull-right icon-grey" rel="tooltip" title="Reply"> Reply</i>'.html_safe, new_referral_reply_path(:referral_id => referral.id, :user_id => current_user.id)
-  .cornershadow
+  

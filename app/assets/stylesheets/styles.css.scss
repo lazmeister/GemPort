@@ -22,8 +22,8 @@ h1,h2,h3,h4,h5,h6 {font-weight:normal};
 a:hover i {text-decoration:none;}
 i:hover {cursor:pointer;}
 .textshadow {text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);}
+.muted {color:#6d7184}
 
-/* Font */
 
 .img-circle {
   -webkit-border-radius: 50%;
@@ -42,6 +42,9 @@ i:hover {cursor:pointer;}
 	-moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.4);
 	box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.4);
 }
+
+/* forms */
+.form-actions {background:none;border:none}
 
 /* Alerts */
 .alert {position:absolute;margin-left:400px}
@@ -144,6 +147,11 @@ margin-top:-39px;
 	box-shadow:         none;
 }
 
+.profilePage {
+	margin: 20px 0;
+}
+
+
 /* footer */
 .footer{
    margin-top: 50px;
@@ -154,7 +162,7 @@ margin-top:-39px;
 }
 
 
-
+/* buttons and colours */
 .btn{
 	/*@include box-shadow(none !important);*/
 	border:none;              
@@ -170,14 +178,7 @@ margin-top:-39px;
 	background: #4e526a;
 	border-bottom: 2px solid #3d4151;
 }
-.btn-facebook {
-	color:white;
-	background:#3b5998;
-	border-bottom-color:#304977;
-	text-shadow:none
-}
-.btn-twitter {
-}
+
 select {width:auto;min-width: 20px;}
 .orange {color:#f36044;}
 .icon-white {background:none;color:white}
@@ -186,8 +187,8 @@ select {width:auto;min-width: 20px;}
 .cornerShadow:after {     
   content: "";
   position:absolute;
-  z-index:-1;
   right:-0px; bottom:20px;
+	z-index:-2;
   width:200px;
   height: 25px;
   background: rgba(0, 0, 0, 0.2);
@@ -201,13 +202,52 @@ select {width:auto;min-width: 20px;}
 	         transform: matrix(-1, -0.1, 0, 1, 0, 0);
 }
 
+/* Homepage and login */
+.login {
+	margin:0 auto 0 auto;
+	display:inline-block;
+}
+.login h1 {margin-bottom:20px;}
+.login h2 {margin-top: 60px;}
+.socialButtons li {margin: 8px 0 8px 0;}
+.btn-facebook, .btn-twitter, .btn-google {
+	color:white;
+	text-shadow:none;
+	font-size: 17px;
+}
+.btn.btn-facebook:hover, .btn.btn-facebook:focus {
+	background: #5681bf;
+}
+.btn.btn-twitter:hover, .btn.btn-twitter:focus {
+	background: #43bce8;
+}
+.btn.btn-google:hover, .btn.btn-google:focus {
+	background: #e26356;
+}
+.btn-facebook {
+	background:#4d72b5;
+	border-bottom-color:#304977;
+}
+.btn-twitter {
+	background:#2ba9e1;
+	border-bottom-color:#207d9e;
+}
+.btn-google {
+	background:#df4a32;
+	border-bottom-color:#9b2e23;
+}
+.section1 h3 {font-family:'Droid Sans', sans-serif;}
+#logo {
+		fill:#4e526a;
+}
+
 /* Dock and referrals */
 .dock {
-	background: #dbd8ce;
-	display: block;
+	background:#e2decc;
 	height:100%;
 	padding:10px;
 	margin-top:30px;
+	z-index:1;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 }
@@ -221,9 +261,9 @@ select {width:auto;min-width: 20px;}
 	background:#FFF;
 	float:left;
 	width: 260px;
-  -moz-box-shadow:		0px 0px 4px rgba(0, 0, 0, 0.14);
-  -webkit-box-shadow:	0px 0px 4px rgba(0, 0, 0, 0.14);
-  box-shadow:					0px 0px 4px rgba(0, 0, 0, 0.14);
+  -moz-box-shadow:		0px 0px 3px rgba(0, 0, 0, 0.14);
+  -webkit-box-shadow:	0px 0px 3px rgba(0, 0, 0, 0.14);
+  box-shadow:					0px 0px 3px rgba(0, 0, 0, 0.14);
   -webkit-transition : all 0.6s ease-out-in;
      -moz-transition : all 0.6s ease-out-in;
       -ms-transition : all 0.6s ease-out-in;
@@ -241,6 +281,7 @@ select {width:auto;min-width: 20px;}
   -webkit-box-shadow:	0px 0px 8px rgba(0, 0, 0, 0.3);
   box-shadow:					0px 0px 8px rgba(0, 0, 0, 0.3);
 }
+.referralBox 
 .referralEdit {
 	opacity:0;
 	visibility:hidden;
@@ -262,8 +303,8 @@ select {width:auto;min-width: 20px;}
 }
 .referralProfile {
 	position:absolute;
-	top:-10px;
-	left:0px;
+	top:-11px;
+	left:-1px;
 	width:60px
 }
 .img-border.border-white {border-color:white}
@@ -297,8 +338,8 @@ select {width:auto;min-width: 20px;}
 @media (min-width: 980px) {
 	body {padding-top: 70px;}
 	.referralBox {margin:8px 15px 8px 15px}
-	.referralBox .location {margin-left:55px;}
-	.referralBox .eventDate {margin-left:55px}
+	.referralBox .location {margin-left:60px;}
+	.referralBox .eventDate {margin-left:60px}
 	.referralProfile {left:-10px;}
 }
 @media (max-width: 979px) {
@@ -308,6 +349,6 @@ select {width:auto;min-width: 20px;}
 }
 @media (min-width: 1200px) {
 	.referralBox {margin:8px}
-	.referralBox .location {margin-left:55px;}
-	.referralBox .eventDate {margin-left:55px}
+	.referralBox .location {margin-left:60px;}
+	.referralBox .eventDate {margin-left:60px}
 }
