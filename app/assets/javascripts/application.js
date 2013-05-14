@@ -18,6 +18,7 @@
 $(function () {
     $("[rel='tooltip']").tooltip();
 		$(".alert").fadeOut(6000);
+		$(".front").find("path").attr("fill", "#4e526a");
 });
 Ajax.Responders.register({
 onComplete: function(event, request) {

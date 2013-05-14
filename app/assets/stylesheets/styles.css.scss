@@ -208,8 +208,7 @@ select {width:auto;min-width: 20px;}
 	display:inline-block;
 }
 .login h1 {margin-bottom:20px;}
-.login h2 {margin-top: 60px;}
-.socialButtons li {margin: 8px 0 8px 0;}
+.socialButtons li {margin: 8px 0 8px 0}
 .btn-facebook, .btn-twitter, .btn-google {
 	color:white;
 	text-shadow:none;
@@ -237,8 +236,18 @@ select {width:auto;min-width: 20px;}
 	border-bottom-color:#9b2e23;
 }
 .section1 h3 {font-family:'Droid Sans', sans-serif;}
-#logo {
-		fill:#4e526a;
+.section1 li.span5 {
+	background:#e2decc;
+	padding: 8px 15px 8px 15px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-bottom:20px;
+}
+.logo.front {
+	width:249px;
+	height:83px;
+	margin-top:13px;
+	line-height:77px;
 }
 
 /* Dock and referrals */

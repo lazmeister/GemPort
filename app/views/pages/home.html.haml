@@ -3,23 +3,20 @@
 - else
   .hero-unit.row.center
     .span12.login
-      .span7.offset2
-        %h1
-          Welcome to
-          = image_tag("logo.svg", :format => "svg", :size => "150x50", :alt => "GemPort", :class => "logo front")
-        .lead.span6.orange
+      .row
+        .span8.offset3
+          %h1
+            Welcome to
+            = image_tag("logo-blue.svg", :format => "svg", :size => "300x100", :alt => "GemPort", :class => "logo front")
+        .span6.offset3.lead.orange
           A Community of photographers, where you can connect with others, find assistants, referrals, and post gear for sale.
       .row
-        .span4
+        .span4.offset2
           %h2
             Register now!
           = link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large"
         .span4.offset1
           %ul.unstyled.socialButtons
-            %li
-              .muted
-                %br
-                Login with social:
             %li
               = link_to '<i class="icon-google-plus icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Google'.html_safe, new_user_registration_path, class: "btn btn-google btn-large btn-block"
             %li  
@@ -27,7 +24,7 @@
             %li  
               = link_to '<i class="icon-twitter icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Twitter'.html_safe, new_user_registration_path, class: "btn btn-twitter btn-large btn-block"
   .row
-    .span12.section1
+    .span11.section1.offset1
       %ul.unstyled.inline
         %li.span5
           %h3.orange
