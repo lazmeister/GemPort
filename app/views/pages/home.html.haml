@@ -1,22 +1,17 @@
 - if user_signed_in?
   = render 'layouts/dock'
 - else
-  .hero-unit.row.center
+  .hero-unit.row.center.home
     .span12.login
       .row
-        .span8.offset3
-          %h1
-            Welcome to
-            = image_tag("logo-blue.svg", :format => "svg", :size => "300x100", :alt => "GemPort", :class => "logo front")
-        .span6.offset3.lead.orange
+        .span7.offset3.lead.white.textshadow
           A Community of photographers, where you can connect with others, find assistants, referrals, and post gear for sale.
       .row
-        .span4.offset2
-          %h2
-            Register now!
-          = link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large"
-        .span4.offset1
-          %ul.unstyled.socialButtons
+        .span4.offset7.socialButtons
+          = link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large signup"
+          %p.text-center
+            or
+          %ul.unstyled
             %li
               = link_to '<i class="icon-google-plus icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Google'.html_safe, new_user_registration_path, class: "btn btn-google btn-large btn-block"
             %li  

@@ -21,9 +21,13 @@ body {
 h1,h2,h3,h4,h5,h6 {font-weight:normal};
 a:hover i {text-decoration:none;}
 i:hover {cursor:pointer;}
-.textshadow {text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);}
+.textshadow {text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);}
 .muted {color:#6d7184}
-
+.white {color:white}
+.orange {color:#f36044;}
+.icon-white {background:none;color:white}
+.icon-grey {color:#AAA}
+.icon-grey:hover {color:#f36044;}
 
 .img-circle {
   -webkit-border-radius: 50%;
@@ -71,7 +75,7 @@ i:hover {cursor:pointer;}
 	width:60px;
 	margin-top:8px;
 }
-.img-border {
+.profileToggle .img-border {
 	border:3px solid #f36044;
 }
 .profileToggle > a .img-border {
@@ -180,10 +184,7 @@ margin-top:-39px;
 }
 
 select {width:auto;min-width: 20px;}
-.orange {color:#f36044;}
-.icon-white {background:none;color:white}
-.icon-grey {color:#AAA}
-.icon-grey:hover {color:#f36044;}
+
 .cornerShadow:after {     
   content: "";
   position:absolute;
@@ -203,12 +204,27 @@ select {width:auto;min-width: 20px;}
 }
 
 /* Homepage and login */
+.home {
+	margin-top:10px;
+	height:550px;
+	background: url('shipwreck.jpg') -100px 0;
+}
+.home .lead {font-size:32px;line-height:39px;margin-top:80px}
 .login {
 	margin:0 auto 0 auto;
 	display:inline-block;
 }
 .login h1 {margin-bottom:20px;}
-.socialButtons li {margin: 8px 0 8px 0}
+.socialButtons ul li {margin: 8px 0 8px 0}
+.socialButtons p.text-center {text-align:center;width:100%;font-size:23px;}
+.socialButtons {
+	margin-top:90px;
+	padding:12px;
+	background:  rgba(78, 82, 106, 0.8);
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.btn.signup {margin:0 0 10px 31%;}
 .btn-facebook, .btn-twitter, .btn-google {
 	color:white;
 	text-shadow:none;
@@ -243,10 +259,13 @@ select {width:auto;min-width: 20px;}
 	border-radius: 5px;
 	margin-bottom:20px;
 }
+.section1{
+	margin-top:50px;
+}
 .logo.front {
 	width:249px;
 	height:83px;
-	margin-top:13px;
+	margin-top:9px;
 	line-height:77px;
 }
 
