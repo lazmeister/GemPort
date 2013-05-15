@@ -1,19 +1,22 @@
-- if controller_name != 'sessions'
-  = link_to "Sign in", new_session_path(resource_name)
-  %br/
-- if devise_mapping.registerable? && controller_name != 'registrations'
-  = link_to "Sign up", new_registration_path(resource_name)
-  %br/
-- if devise_mapping.recoverable? && controller_name != 'passwords'
-  = link_to "Forgot your password?", new_password_path(resource_name)
-  %br/
-- if devise_mapping.confirmable? && controller_name != 'confirmations'
-  = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
-  %br/
-- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-  = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)
-  %br/
-- if devise_mapping.omniauthable?
-  - resource_class.omniauth_providers.each do |provider|
-    = link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider)
+.span4.socialButtons.signin.offset1
+  - if controller_name != 'sessions'
+    = link_to "Sign in", new_session_path(resource_name)
     %br/
+  - if devise_mapping.registerable? && controller_name != 'registrations'
+    = link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary btn-large signup"
+    %p.text-center
+      or
+  - if devise_mapping.confirmable? && controller_name != 'confirmations'
+    = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
+    %br/
+  - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
+    = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)
+    %br/
+  - if devise_mapping.omniauthable?
+    %ul.unstyled
+      %li
+        = link_to '<i class="icon-google-plus icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Google'.html_safe, new_user_registration_path, class: "btn btn-google btn-large btn-block"
+      %li  
+        = link_to '<i class="icon-facebook icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-large btn-block"
+      %li  
+        = link_to '<i class="icon-twitter icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Twitter'.html_safe, new_user_registration_path, class: "btn btn-twitter btn-large btn-block"

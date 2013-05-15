@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.masonry.min.js
+//= require jquery-ui-slider-pips-min.js
 //= require_tree .
 $(function () {
     $("[rel='tooltip']").tooltip();

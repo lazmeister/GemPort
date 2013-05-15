@@ -1,9 +1,15 @@
-%h2 Sign in
-= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-horizontal'}) do |f|
-  = f.input :email, :autofocus => true
-  = f.input :password
-  - if devise_mapping.rememberable?
-    = f.input :remember_me, as: :boolean
-  .form-actions
-    = f.submit "Sign in", class: "btn btn-primary"
-= render "devise/shared/links"
+.row
+  .span10.dock.offset1
+    .span4
+      .lead Login
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-horizontal'}) do |f|
+        = f.input :email, :autofocus => true
+        = f.input :password
+        - if devise_mapping.rememberable?
+          = f.input :remember_me, as: :boolean
+        .form-actions
+          = f.submit "Sign in", class: "btn btn-primary"
+      - if devise_mapping.recoverable? && controller_name != 'passwords'
+        = link_to "Forgot your password?", new_password_path(resource_name)
+        %br/
+    = render "devise/shared/links"
