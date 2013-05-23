@@ -18,7 +18,8 @@
           Currently waiting confirmation for: #{resource.unconfirmed_email}
       
       = f.input :website
-      = f.input :location
+      = f.input :city
+      = f.input :country, collection: Country.all, as: :select
       = f.input :phone
       .lead Notifications
       = f.input :notif_referrals, label: "Referral Postings", collection: [ "on", "off" ], :default => "on"

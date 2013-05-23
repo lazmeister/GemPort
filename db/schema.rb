@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522193411) do
+ActiveRecord::Schema.define(:version => 20130523183549) do
 
   create_table "referrals", :force => true do |t|
     t.string   "description"
@@ -66,10 +66,11 @@ ActiveRecord::Schema.define(:version => 20130522193411) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "website"
-    t.string   "location"
     t.integer  "phone"
     t.boolean  "notif_referrals"
     t.boolean  "notif_assistant"
+    t.string   "city"
+    t.string   "country"
   end
 
 end

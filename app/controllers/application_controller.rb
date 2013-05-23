@@ -23,4 +23,5 @@ class ApplicationController < ActionController::Base
       return type unless flash[type].blank?
     end
   end
+  
 end

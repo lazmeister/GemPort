@@ -5,15 +5,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  attr_accessible :name, :email, :website, :location, :phone, :password, :notif_referrals, :notif_assistant, :password_confirmation, :remember_me, :provider, :uid, :image
+  attr_accessible :name, :email, :website, :city, :country, :phone, :password, :notif_referrals, :notif_assistant, :password_confirmation, :remember_me, :provider, :uid, :image
 
   has_attached_file :image, styles: { medium: "320x320>", thumb: "50x50" }
   has_many :referrals
   has_many :replies, :through => :referrals
-  
-  def remote_ip  
-    @client_ip = request.remote_ip
-  end
+
   
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
