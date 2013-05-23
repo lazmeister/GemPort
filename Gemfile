@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'ui_datepicker-rails3'
 gem 'devise'
 gem 'simple_form'
 gem 'omniauth'
@@ -13,6 +15,7 @@ gem 'font-awesome-sass-rails'
 gem "rails-alertify"
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
+gem 'geocoder'
 
 group :production do
   gem 'pg'

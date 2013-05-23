@@ -2,25 +2,31 @@
   .navbar-inner
     .container
       = link_to image_tag("logo.svg", :format => "svg", :size => "150x50", :alt => "GemPort"),  root_path, class: "logo"
-      %ul.nav
-        %li.span1
-        %li{:class => "#{'active' if current_page?(about_path)}"}
-          = link_to 'About', about_path
-          - if current_page?(about_path)
-            %i.icon-caret-up.icon-large.pull-right
-        %li
-          %a{:href => "#"} Blog
-        %li.span1
-        %li{:class => "#{'active' if current_page?(referrals_path)}"}
-          = link_to 'Referrals', referrals_path
-          - if current_page?(referrals_path)
-            %i.icon-caret-up.icon-large.pull-right
-        %li
-          = link_to 'Gear'
-        %li
-          = link_to 'Assistants'
-      %ul.nav.pull-right
-        - if user_signed_in?
+      %a.btn.btn-navbar{"data-toggle" => "collapse", "data-target" => ".nav-collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .nav-collapse.collapse
+        %ul.nav
+          %li.span1
+          %li{:class => "#{'active' if current_page?(about_path)}"}
+            = link_to 'About', about_path
+            - if current_page?(about_path)
+              %i.icon-caret-up.icon-large.pull-right
+          %li
+            %a{:href => "#"} Blog
+          - if user_signed_in?
+            %li.span1
+            %li{:class => "#{'active' if current_page?(referrals_path)}"}
+              = link_to 'Referrals', referrals_path
+              - if current_page?(referrals_path)
+                %i.icon-caret-up.icon-large.pull-right
+            %li
+              = link_to 'Gear'
+            %li
+              = link_to 'Assistants'
+      - if user_signed_in?
+        %ul.nav.pull-right
           %li
             %ul.nav.pull-right
               %li.dropdown.profileToggle
@@ -40,6 +46,7 @@
                   %li.divider
                   %li
                     = link_to '<i class="icon-signout"></i> Logout'.html_safe, destroy_user_session_path, method: :delete
-        - else
-          %li
+      - unless user_signed_in?
+        %ul.nav
+          %li.login
             = link_to '<i class="icon-user"></i> Login'.html_safe,  new_user_session_path, :class => "btn btn-primary"

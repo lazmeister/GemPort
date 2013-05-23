@@ -20,13 +20,13 @@ body {
 .hero-unit h1 {color:#4e526a;}
 h1,h2,h3,h4,h5,h6 {font-weight:normal};
 a:hover i {text-decoration:none;}
-i:hover {cursor:pointer;}
+i:hover {}
 .textshadow {text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);}
 .muted {color:#6d7184}
 .white {color:white}
 .orange {color:#f36044;}
 .icon-white {background:none;color:white}
-.icon-grey {color:#AAA}
+.icon-grey {color:#b2b1aa}
 .icon-grey:hover {color:#f36044;}
 
 .img-circle {
@@ -80,7 +80,7 @@ i:hover {cursor:pointer;}
 	border:3px solid #f36044;
 }
 .profileToggle > a .img-border {
-margin-top:-39px;
+	margin-top:-39px;
 }
 .profileToggle > a i {margin:0px}
 .profileToggle > a:hover .img-border, .profileToggle.open > a .img-border {
@@ -156,6 +156,7 @@ margin-top:-39px;
 }
 .navbar .nav > li > a.btn {margin-top:10px; color:white; line-height:20px; font-size:18px;}
 .navbar .nav > li > a.btn:hover {color:#f36044;background:#f2efe1}
+.login {text-align:right;float:right}
 
 /* footer */
 .footer{
@@ -219,11 +220,12 @@ select {width:auto;min-width: 20px;}
 .socialButtons ul li {margin: 8px 0 8px 0}
 .socialButtons p.text-center {text-align:center;width:100%;font-size:23px;}
 .socialButtons {
-	margin-top:90px;
 	padding:12px;
-	background:  rgba(78, 82, 106, 0.1);
+	background:  rgba(78, 82, 106, 0.15);
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
+	
+	color:white;text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 .btn.signup {margin:0 0 10px 28%;line-height:36px;font-size:22px}
 .btn-facebook, .btn-twitter, .btn-google {
@@ -253,7 +255,7 @@ select {width:auto;min-width: 20px;}
 	border-bottom-color:#9b2e23;
 }
 .section1 h3 {font-family:'Droid Sans', sans-serif;}
-.section1 li.span5 {
+.section1 {
 	background:#e2decc;
 	padding: 8px 15px 8px 15px;
 	-webkit-border-radius: 5px;
@@ -273,10 +275,11 @@ select {width:auto;min-width: 20px;}
 /* Sign-in/up page */
 .socialButtons.signin {
 	margin-top:0;
+	margin-left:160px;
 	padding:12px;
 	background:inherit;
 }
-.signin .btn.signup {margin:0 0 10px 35%}
+.btn.signup {margin:0 0 10px 0}
 
 /* Dock and referrals */
 .dock {
@@ -352,17 +355,19 @@ select {width:auto;min-width: 20px;}
 
 
 @media (max-width: 480px) {
-	
 }
 @media (max-width: 767px) {
 	.referralBox {margin:8px 5px 8px 5px;width:98%}
 	.referralBox .location {margin-left:52px;}
 	.referralBox .eventDate {margin-left:52px}
 	.referralProfile {left:-15px;}
+	.login {margin-left:160px}
 }
 @media (min-width: 768px) {
 	.referralBox .location {margin-left:40px;}
 	.referralBox .eventDate {margin-left:40px}
+	.socialButtons {margin-top:120px;margin-left:490px; width:270px}
+	.home .lead {margin-top:30px;width:530px}
 }
 @media (min-width: 768px) and (max-width: 979px) {
 	.referralBox {margin:8px 15px 8px 15px;}
@@ -371,6 +376,8 @@ select {width:auto;min-width: 20px;}
 	.referralProfile {left:-15px;}
 	.btn {padding-left:4px;padding-right:4px}
 	.span3 .btn.btn-block {width: 186px;}
+	.home .lead {font-size: 28px; line-height: 33px;}
+	.login {margin-left:310px}
 }
 @media (min-width: 980px) {
 	body {padding-top: 70px;}
@@ -378,6 +385,9 @@ select {width:auto;min-width: 20px;}
 	.referralBox .location {margin-left:60px;}
 	.referralBox .eventDate {margin-left:60px}
 	.referralProfile {left:-10px;}
+	.home .lead {margin-top:30px;margin-left: 350px;width:590px}
+	.socialButtons {margin-top:90px;margin-left:705px;;color:inherit;text-shadow:none}
+	.login {margin-left:438px}
 }
 @media (max-width: 979px) {
 	.navbar .logo {
@@ -388,4 +398,7 @@ select {width:auto;min-width: 20px;}
 	.referralBox {margin:8px}
 	.referralBox .location {margin-left:60px;}
 	.referralBox .eventDate {margin-left:60px}
+	.socialButtons {margin-top:90px;margin-left:945px;color:inherit;text-shadow:none}
+	.home .lead {margin-top:30px;width:590px}
+	.login {margin-left:650px}
 }

@@ -1,7 +1,7 @@
 - if user_signed_in?
   = render 'layouts/dock'
 - else
-  .hero-unit.row.center.home
+  .hero-unit.center.home
     .span12.login
       .row
         .span7.offset3.lead.white.textshadow
@@ -9,8 +9,8 @@
       .row
         .span4.offset7.socialButtons
           = link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large signup"
-          %p.text-center
-            or
+          %p.text-right
+            or &nbsp;&nbsp;&nbsp;&nbsp;
           %ul.unstyled
             %li
               = link_to '<i class="icon-google-plus icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Google'.html_safe, new_user_registration_path, class: "btn btn-google btn-large btn-block"
@@ -18,34 +18,27 @@
               = link_to '<i class="icon-facebook icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-large btn-block"
             %li  
               = link_to '<i class="icon-twitter icon-white icon-large"></i> &nbsp;&nbsp;Sign in with Twitter'.html_safe, new_user_registration_path, class: "btn btn-twitter btn-large btn-block"
-.section1
-  %h3.orange
-    %i.icon-group.icon-large
-    &nbsp; Referrals
-  %p
-    %strong Post/Apply Referrals for all sorts of gigs. If you have an inquiry and you are booked for that day, come and post your referral! If you are looking for extra work, you can easily apply to local referrals
-
-  .row
-    .span11.section1.offset1
-      %ul.unstyled.inline
-        %li.span5
-          %h3.orange
-            %i.icon-heart.icon-large
-            &nbsp; Make Friends
-          %p
-            %strong Connect and make friends with local photographers!
-      .span12
-        %br
-      %ul.unstyled.inline
-        %li.span5
-          %h3.orange
-            %i.icon-camera.icon-large
-            &nbsp; Gear for Sale
-          %p
-            %strong Sell/Buy gear from local photographers within your region. No more spam, no more outrageous posting fees!
-        %li.span5
-          %h3.orange
-            %i.icon-star.icon-large
-            &nbsp; Find an Assistant
-          %p
-            %strong Find/Apply for assistant jobs. You will have the comfort of knowing you are in a community of photographers
+  .section1
+    %h3.orange
+      %i.icon-group.icon-large
+      &nbsp; Referrals
+    %p
+      %strong Post/Apply Referrals for all sorts of gigs. If you have an inquiry and you are booked for that day, come and post your referral! If you are looking for extra work, you can easily apply to local referrals
+  .section1
+    %h3.orange
+      %i.icon-heart.icon-large
+      &nbsp; Make Friends
+    %p
+      %strong Connect and make friends with local photographers!
+  .section1  
+    %h3.orange
+      %i.icon-camera.icon-large
+      &nbsp; Gear for Sale
+    %p
+      %strong Sell/Buy gear from local photographers within your region. No more spam, no more outrageous posting fees!
+  .section1  
+    %h3.orange
+      %i.icon-star.icon-large
+      &nbsp; Find an Assistant
+    %p
+      %strong Find/Apply for assistant jobs. You will have the comfort of knowing you are in a community of photographers

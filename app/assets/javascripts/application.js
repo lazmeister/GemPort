@@ -15,16 +15,17 @@
 //= require bootstrap
 //= require jquery.masonry.min.js
 //= require jquery-ui-slider-pips-min.js
+//= require jquery.ui.datepicker
 //= require_tree .
 $(function () {
     $("[rel='tooltip']").tooltip();
 		$(".alert").fadeOut(6000);
 		$(".front").find("path").attr("fill", "#4e526a");
-});
-Ajax.Responders.register({
-onComplete: function(event, request) {
-   var msg = request.getResponseHeader('X-Message');
-   var type = request.getResponseHeader('X-Message-Type');
-   showAjaxMessage(msg, type); //use whatever popup, notification or whatever plugin you want
-   }
+		$('input.ui-date-picker').datepicker({
+			showAnim: "slideDown",
+			minDate: 0,
+			showOtherMonths: true,
+			selectOtherMonths: true,
+			dateFormat: "DD, d MM, yy"
+		});
 });

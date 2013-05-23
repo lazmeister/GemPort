@@ -45,6 +45,9 @@ SimpleForm.setup do |config|
     b.use :error, :wrap_with => { :tag => :span, :class => :error }
   end
 
+
+  UiDatePickerRails3.activate :simple_form
+  
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :default
 

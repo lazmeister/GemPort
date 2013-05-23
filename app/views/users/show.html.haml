@@ -4,14 +4,21 @@
       = image_tag(@user.image.url, :class => "img-circle img-border border-white")
       %h2
         = @user.name
-      %i.icon-globe.icon-large
-      &nbsp;
-      = @user.website
-      %br
-      %br
-      %i.icon-map-marker.icon-large
-      &nbsp;
-      = @user.location
+      %ul.unstyled.inline
+        %li
+          %i.icon-globe.icon-large.icon-grey
+        %li
+          = @user.website
+      %ul.unstyled.inline
+        %li
+          %i.icon-map-marker.icon-large.icon-grey
+        %li
+          = @user.location
+      %ul.untyled.inline    
+        %li
+          %i.icon-phone.icon-large.icon-grey
+        %li
+          = @user.phone
     .span8
       .span7
         %h3

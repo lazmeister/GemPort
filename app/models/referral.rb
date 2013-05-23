@@ -7,6 +7,10 @@ class Referral < ActiveRecord::Base
   validates :eventdate, presence: true
   has_many :replies
   
+  # geocoding
+  geocoded_by :location
+  after_validation :geocode, :if => :location_changed?
+  
   def nil_zero?
     self.nil? || self == 0
   end

@@ -8,6 +8,9 @@
   = f.input :email
   = f.input :website
   = f.input :location
+  = f.input :phone
+  = f.input :notif_referrals, collection: [ "on", "off" ], hint: "Notification of Referrals"
+  = f.input :notif_assistant, collection: [ "on", "off" ], hint: "Notification of Assistants"
   = f.input :password
   = f.input :password_confirmation
   .form-actions
