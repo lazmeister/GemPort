@@ -3,50 +3,40 @@
     .container
       = link_to image_tag("logo.svg", :format => "svg", :size => "150x50", :alt => "GemPort"),  root_path, class: "logo"
       %a.btn.btn-navbar{"data-toggle" => "collapse", "data-target" => ".nav-collapse"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
+        %i.icon-reorder.icon-2x
       .nav-collapse.collapse
         %ul.nav
           %li.span1
           %li{:class => "#{'active' if current_page?(about_path)}"}
             = link_to 'About', about_path
-            - if current_page?(about_path)
-              %i.icon-caret-up.icon-large.pull-right
           %li
             %a{:href => "#"} Blog
           - if user_signed_in?
-            %li.span1
             %li{:class => "#{'active' if current_page?(referrals_path)}"}
               = link_to 'Referrals', referrals_path
-              - if current_page?(referrals_path)
-                %i.icon-caret-up.icon-large.pull-right
+          - unless user_signed_in?
+            %li.login
+              = link_to '<i class="icon-user"></i> Login'.html_safe,  new_user_session_path, :class => "btn btn-primary"
+            
+          - if user_signed_in?
             %li
-              = link_to 'Gear'
-            %li
-              = link_to 'Assistants'
-      - if user_signed_in?
-        %ul.nav.pull-right
-          %li
-            %ul.nav.pull-right
-              %li.dropdown.profileToggle
-                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                  %i.icon-chevron-down.icon-white.pull-right
-                  .img-border.profileHeader.pull-left
-                    = image_tag(current_user.image.url, :class => "img-circle ", :style => "thumb")
-                %ul.dropdown-menu
-                  %li
-                    = link_to '<i class="icon-picture"></i> My Profile'.html_safe
-                  %li
-                    = link_to '<i class="icon-user"></i> Edit Profile'.html_safe, edit_user_registration_path
-                  %li
-                    %a{:href => ""}
-                      %i.icon-medkit
-                      Help
-                  %li.divider
-                  %li
-                    = link_to '<i class="icon-signout"></i> Logout'.html_safe, destroy_user_session_path, method: :delete
-      - unless user_signed_in?
-        %ul.nav
-          %li.login
-            = link_to '<i class="icon-user"></i> Login'.html_safe,  new_user_session_path, :class => "btn btn-primary"
+              %ul.nav.pull-right
+                %li
+                  %ul.nav.pull-right
+                    %li.dropdown.profileToggle
+                      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                        %i.icon-chevron-down.icon-white.pull-right
+                        .img-border.profileHeader.pull-left
+                          = image_tag(current_user.image.url, :class => "img-circle ", :style => "thumb")
+                      %ul.dropdown-menu
+                        %li
+                          = link_to '<i class="icon-picture"></i> My Profile'.html_safe
+                        %li
+                          = link_to '<i class="icon-user"></i> Edit Profile'.html_safe, edit_user_registration_path
+                        %li
+                          %a{:href => ""}
+                            %i.icon-medkit
+                            Help
+                        %li.divider
+                        %li
+                          = link_to '<i class="icon-signout"></i> Logout'.html_safe, destroy_user_session_path, method: :delete
