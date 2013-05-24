@@ -7,8 +7,8 @@
   = f.input :name, :autofocus => true
   = f.input :email
   = f.input :website
-  = f.input :city, :input_html => { :value => "#{client_city}" }
-  = f.input :country, :input_html => { :value => "#{client_country}" }
+  = f.input :city, input_html: { value: request.location.city }
+  = f.input :country
   = f.input :phone
   = f.input :notif_referrals, collection: [ "on", "off" ], hint: "Notification of Referrals"
   = f.input :notif_assistant, collection: [ "on", "off" ], hint: "Notification of Assistants"

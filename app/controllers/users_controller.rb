@@ -3,8 +3,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @referrals = @user.referrals
   end
-  def index
-    @client_city = request.location.city
-    @client_country = request.location.country
+  def create
+     @user.city = request.location.city
+     @user.country = request.location.country
   end
 end
