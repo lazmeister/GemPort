@@ -16,10 +16,9 @@
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
-      
       = f.input :website
       = f.input :city
-      = f.input :country, collection: Country.all, as: :select
+      = f.input :country
       = f.input :phone
       .lead Notifications
       = f.input :notif_referrals, label: "Referral Postings", collection: [ "on", "off" ], :default => "on"

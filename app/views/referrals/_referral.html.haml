@@ -3,7 +3,7 @@
     = link_to '<i class="icon-pencil icon-large icon-grey" rel="tooltip" title="Edit"></i>'.html_safe, edit_referral_path(referral), class: "referralEdit"
     = link_to '<i class="icon-remove icon-large icon-grey" rel="tooltip" title="Delete"></i>'.html_safe, referral, method: :delete, data: { confirm: 'Are you sure?' }, class: "referralClose"
   .referralProfile
-    = link_to "#{image_tag(referral.user.image.url, :class => "img-circle img-border border-white", :style => "thumb")}".html_safe, referral.user, { "rel" => "tooltip", "title" => "Profile"}
+    = link_to "#{image_tag(referral.user.image.url, :class => "img-circle img-border border-white", :style => "thumb")}".html_safe, referral.user
   .location
     %i.icon-map-marker
     &nbsp;&nbsp;
