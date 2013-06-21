@@ -25,12 +25,12 @@
                   %ul.nav.pull-right
                     %li.dropdown.profileToggle
                       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                        %i.icon-chevron-down.orange.pull-right
+                        %i.icon-cog.orange.pull-right
                         .img-border.profileHeader.pull-left
                           = image_tag(current_user.image.url, :class => "img-circle ", :style => "thumb")
                       %ul.dropdown-menu
                         %li
-                          = link_to '<i class="icon-picture"></i> My Profile'.html_safe
+                          = link_to '<i class="icon-picture"></i> My Profile'.html_safe, user_path(current_user)
                         %li
                           = link_to '<i class="icon-user"></i> Edit Profile'.html_safe, edit_user_registration_path
                         %li

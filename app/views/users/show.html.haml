@@ -13,12 +13,17 @@
         %li
           %i.icon-map-marker.icon-large.icon-grey
         %li
-          = @user.city + ", " + @user.country
-      %ul.untyled.inline    
+          = @user.location
+      %ul.unstyled.inline    
         %li
           %i.icon-phone.icon-large.icon-grey
         %li
           = @user.phone
+      - if current_user == @user
+        %br
+        %ul.unstyled.inline
+          %li
+            = link_to '<i class="icon-user icon-large icon-white" rel="tooltip" title="Edit Profile"> Edit Profile</i>'.html_safe, edit_user_registration_path(current_user), class: "btn"
     .span8
       .span7
         %h3

@@ -17,9 +17,11 @@
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
       = f.input :website
-      = f.input :city
-      = f.input :country
+      = f.input :location, class: "geolocation"
       = f.input :phone
+      -if current_user.role == 'administrator'
+        .radio.offset2
+          = f.collection_radio_buttons :role, [['administrator', 'Administrator'] ,['photographer', 'Photographer']], :first, :last
       .lead Notifications
       = f.input :notif_referrals, label: "Referral Postings", collection: [ "on", "off" ], :default => "on"
       = f.input :notif_assistant, label: "Assistant Postings", collection: [ "on", "off" ], :default => "on"

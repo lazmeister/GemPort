@@ -1,5 +1,5 @@
 .referralBox.cornerShadow
-  - if current_user == referral.user
+  - if current_user == referral.user or current_user.role == 'administrator'
     = link_to '<i class="icon-pencil icon-large icon-grey" rel="tooltip" title="Edit"></i>'.html_safe, edit_referral_path(referral), class: "referralEdit"
     = link_to '<i class="icon-remove icon-large icon-grey" rel="tooltip" title="Delete"></i>'.html_safe, referral, method: :delete, data: { confirm: 'Are you sure?' }, class: "referralClose"
   .referralProfile
@@ -20,18 +20,23 @@
       %i.icon-time 
       = referral.coverage
       %small hrs
-    %li
-      $
-      = referral.budget
+    - unless referral.budget == 0 or referral.budget == nil
+      %li
+        $
+        = referral.budget
   %ul.unstyled.inline
     %li
       = referral.description  
-  -unless referral.replies.count == 0
-    %i.icon-comments.icon-large.orange{"rel" => "tooltip", "title" => "Replies"}
-      = referral.replies.count
+  - unless referral.replies.count == 0
+    - if referral.user == current_user
+      %i.icon-comments.icon-large{"rel" => "tooltip", "title" => "Replies"}
+        = referral.replies.count
+    - else
+      %i.icon-comments.icon-large.orange{"rel" => "tooltip", "title" => "Replies"}
+        = referral.replies.count
   - unless current_user == referral.user
     - if referral.replies.any?
       %i.icon-ok.icon-large.pull-right.orange{"rel" => "tooltip", "title" => "Replied"}
     - else
-      = link_to '<i class="icon-ok icon-large pull-right icon-grey" rel="tooltip" title="Reply"> Reply</i>'.html_safe, new_referral_reply_path(:referral_id => referral.id, :user_id => current_user.id)
+      = link_to '<i class="icon-ok icon-large pull-right icon-grey" rel="tooltip" title="Reply"> Reply</i>'.html_safe, new_referral_reply_path(:referral_id => referral.id, :user_id => current_user.id), remote: true
   

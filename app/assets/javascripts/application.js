@@ -16,6 +16,7 @@
 //= require jquery.masonry.min.js
 //= require jquery-ui-slider-pips-min.js
 //= require jquery.ui.datepicker
+//= require jquery.geocomplete.min.js
 //= require_tree .
 $(function () {
     $("[rel='tooltip']").tooltip();
@@ -28,4 +29,21 @@ $(function () {
 			selectOtherMonths: true,
 			dateFormat: "DD, d MM, yy"
 		});
+		
+		// Gecode
+		$("#referral_location").geocomplete()
+      .bind("geocode:result", function(event, result){
+        $.log("Result: " + result.formatted_address);
+      })
+    $("#find").click(function(){
+      $("#referral_location").trigger("geocode");
+    });
+		$("#user_location").geocomplete()
+      .bind("geocode:result", function(event, result){
+        $.log("Result: " + result.formatted_address);
+      })
+    $("#find").click(function(){
+      $("#user_location").trigger("geocode");
+    });
+
 });

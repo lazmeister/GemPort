@@ -38,4 +38,10 @@ GemPort::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
   Paperclip.options[:command_path] = "/usr/local/bin/"
+  
+  require 'pusher'
+
+  Pusher.app_id = '47152'
+  Pusher.key = 'fca904ec3a5a707f6e14'
+  Pusher.secret = '572a8460f4744248aa49'
 end

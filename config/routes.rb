@@ -1,4 +1,7 @@
 GemPort::Application.routes.draw do
+  resources :roles
+
+
   get "users/show"
 
   resources :referrals do
@@ -8,6 +11,7 @@ GemPort::Application.routes.draw do
   devise_for :users
     match 'users/:id' => 'users#show', as: :user
   devise_for :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users
 
   root :to => 'pages#home'
   get 'about' => 'pages#about'

@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'ui_datepicker-rails3'
 gem 'devise'
+gem 'cancan'
 gem 'simple_form', "2.1"
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -16,10 +17,10 @@ gem "rails-alertify"
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'geocoder'
-gem "country_select", "~> 1.1.3"
 
 group :production do
   gem 'pg'
+  gem 'pusher'
 end
 
 group :development, :test do
