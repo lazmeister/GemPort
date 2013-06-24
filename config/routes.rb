@@ -1,7 +1,4 @@
 GemPort::Application.routes.draw do
-  resources :roles
-
-
   get "users/show"
 
   resources :referrals do

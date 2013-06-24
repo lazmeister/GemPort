@@ -1,32 +1,27 @@
 class ReferralsController < ApplicationController
   before_filter :authenticate_user!
+
   
   # GET /referrals
   # GET /referrals.json
   def index
     @referrals = Referral.order("created_at asc").page(params[:page]).per_page(10)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @referrals }
     end
   end
 
-  # GET /referrals/1
-  # GET /referrals/1.json
-  def show
-    @referral = Referral.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @referral }
-    end
-  end
-
   # GET /referrals/new
   # GET /referrals/new.json
   def new
-    @referral = current_user.referrals.new
-
+    @referral = Referral.new
+    
+    Pusher['test_channel'].trigger('greet', {
+      :greeting => "Hello there!"
+    })
+    Pusher['test_channel'].trigger('greet', {:message => 'hello world'})
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @referrals }
@@ -35,13 +30,13 @@ class ReferralsController < ApplicationController
 
   # GET /referrals/1/edit
   def edit
-    @referral = current_user.referrals.find(params[:id])
+    @referral = Referral.find(params[:id])
   end
 
   # POST /referrals
   # POST /referrals.json
   def create
-    @referral = current_user.referrals.new(params[:referral])
+    @referral = Referral.new(params[:referral])
 
     respond_to do |format|
       if @referral.save
@@ -57,7 +52,7 @@ class ReferralsController < ApplicationController
   # PUT /referrals/1
   # PUT /referrals/1.json
   def update
-    @referral = current_user.referrals.find(params[:id])
+    @referral = Referral.find(params[:id])
 
     respond_to do |format|
       if @referral.update_attributes(params[:referral])
@@ -73,7 +68,7 @@ class ReferralsController < ApplicationController
   # DELETE /referrals/1
   # DELETE /referrals/1.json
   def destroy
-    @referral = current_user.referrals.find(params[:id])
+    @referral = Referral.find(params[:id])
     @referral.destroy
 
     respond_to do |format|

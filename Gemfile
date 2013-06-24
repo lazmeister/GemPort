@@ -20,7 +20,6 @@ gem 'geocoder'
 
 group :production do
   gem 'pg'
-  gem 'pusher'
 end
 
 group :development, :test do
